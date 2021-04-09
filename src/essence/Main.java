@@ -1,5 +1,4 @@
-
-package essence{
+package essence;
 
 public class Main extends JavaPlugin {
 
@@ -8,5 +7,4 @@ public class Main extends JavaPlugin {
     }
 
 
-}
 }
