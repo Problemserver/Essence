@@ -1,10 +1,12 @@
 
+package essence{
 
-public class Main extends JavaPlugin{
+public class Main extends JavaPlugin {
 
-    public void onEnable(){
+    public void onEnable() {
 
     }
 
 
+}
 }
