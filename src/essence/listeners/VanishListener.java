@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class VanishListener implements Listener{
-    Vanish vanish;
+    private final Vanish vanish;
 
     public VanishListener(Vanish vanish){
         this.vanish = vanish;
