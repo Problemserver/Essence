@@ -8,7 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-    private Vanish vanish = new Vanish(this);
+    private final Vanish vanish = new Vanish(this);
 
     @Override
     public void onEnable() {

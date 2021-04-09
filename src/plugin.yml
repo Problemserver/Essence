@@ -7,6 +7,14 @@ commands:
   gm:
     description: Fast gamemode switcher
     usage: /gm [0-3]
+    permission: essence.command.gm
   v:
     description: Make yourself invisible to others
     usage: /v
+    aliases: vanish
+    permission: essence.command.vanish
+permissions:
+  essence.command.gm:
+    default: op
+  essence.command.vanish:
+    default: op
