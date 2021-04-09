@@ -7,3 +7,6 @@ commands:
   gm:
     description: Fast gamemode switcher
     usage: /gm [0-3]
+  v:
+    description: Make yourself invisible to others
+    usage: /v
