@@ -13,7 +13,7 @@ public class Main extends JavaPlugin {
         getLogger().info("Essence primed and ready.");
     }
 
-    public void registerCommands(){
+    private void registerCommands(){
         getCommand("gm").setExecutor(new gm());
     }
 
