@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vanish {
-    private essence.Main main;
-    private List<Player> hiddenPlayers = new ArrayList<>();
+    private final essence.Main main;
+    private final List<Player> hiddenPlayers = new ArrayList<>();
 
     public Vanish(essence.Main main) {
         this.main = main;
