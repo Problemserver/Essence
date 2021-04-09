@@ -1,0 +1,9 @@
+main: essence.Main
+version: 0.1
+name: Essence
+authors: [JustFloooo, Nicronicson]
+api-version: 1.13
+commands:
+  gm:
+    description: Fast gamemode switcher
+    usage: /gm [gamemode]
