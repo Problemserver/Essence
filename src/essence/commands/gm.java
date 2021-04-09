@@ -1,5 +1,6 @@
 package essence.commands;
 
+import essence.util.Language;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,20 +26,25 @@ public class gm implements CommandExecutor {
 
                 if (gmValue < 0 || gmValue > 3) return false;
 
+                GameMode gameMode;
+
                 switch (gmValue) {
                     case 0:
-                        player.setGameMode(GameMode.SURVIVAL);
-                        break;
-                    case 1:
-                        player.setGameMode(GameMode.CREATIVE);
+                        gameMode = GameMode.SURVIVAL;
                         break;
                     case 2:
-                        player.setGameMode(GameMode.ADVENTURE);
+                        gameMode = GameMode.ADVENTURE;
                         break;
                     case 3:
-                        player.setGameMode(GameMode.SPECTATOR);
+                        gameMode = GameMode.SPECTATOR;
+                        break;
+                    default:
+                        gameMode = GameMode.CREATIVE;
                         break;
                 }
+
+                player.setGameMode(gameMode);
+                player.sendMessage(String.format(Language.getStringFromKeyword("cmd_gm"), gameMode.name()));
 
             } else {
                 return false;

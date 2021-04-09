@@ -1,5 +1,6 @@
 package essence.tools;
 
+import essence.util.Language;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -21,12 +22,14 @@ public class Vanish {
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
                 otherPlayer.showPlayer(main, player);
             }
+            player.sendMessage(Language.getStringFromKeyword("cmd_vanish_off"));
         } else {
             hiddenPlayers.add(player);
             //hides the player from everyone
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
                 otherPlayer.hidePlayer(main, player);
             }
+            player.sendMessage(Language.getStringFromKeyword("cmd_vanish_on"));
         }
     }
 

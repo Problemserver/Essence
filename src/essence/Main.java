@@ -4,6 +4,7 @@ import essence.commands.gm;
 import essence.commands.v;
 import essence.listeners.VanishListener;
 import essence.tools.Vanish;
+import essence.util.Language;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -13,6 +14,8 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("Loading Essence Plugin.");
+        getLogger().info("Downloading Essence Language.");
+        Language.putStringsInHashmap();
         getLogger().info("Loading Essence Commands.");
         registerCommands();
         getLogger().info("Loading Essence Listeners.");
