@@ -20,6 +20,7 @@ public class NavigatorListener implements Listener {
         this.navigator = navigator;
     }
 
+    @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         if (navigator.isCompass(event.getItem())) {
             navigator.openCompassMenu(event.getPlayer());
