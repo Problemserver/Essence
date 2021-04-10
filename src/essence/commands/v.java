@@ -22,7 +22,7 @@ public class v implements CommandExecutor {
 
             // /vn
             if (strings.length == 0) {
-                vanish.ChangeVanishStatus(player);
+                vanish.ChangeVanishStatus(player, false);
             } else {
                 return false;
             }

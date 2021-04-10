@@ -15,21 +15,23 @@ public class Vanish {
         this.main = main;
     }
 
-    public void ChangeVanishStatus(Player player){
+    public void ChangeVanishStatus(Player player, boolean silent){
         if(hiddenPlayers.contains(player)){
             hiddenPlayers.remove(player);
             //everybody can see the player again
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
                 otherPlayer.showPlayer(main, player);
             }
-            player.sendMessage(Language.getStringFromKeyword("cmd_vanish_off"));
+            if(!silent)
+                player.sendMessage(Language.getStringFromKeyword("cmd_vanish_off"));
         } else {
             hiddenPlayers.add(player);
             //hides the player from everyone
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
                 otherPlayer.hidePlayer(main, player);
             }
-            player.sendMessage(Language.getStringFromKeyword("cmd_vanish_on"));
+            if(!silent)
+                player.sendMessage(Language.getStringFromKeyword("cmd_vanish_on"));
         }
     }
 

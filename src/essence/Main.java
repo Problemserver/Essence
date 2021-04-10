@@ -24,8 +24,8 @@ public class Main extends JavaPlugin {
     }
 
     private void registerCommands(){
-        getCommand("gm").setExecutor(new gm());
-        getCommand("v").setExecutor(new v(vanish));
+            getCommand("gm").setExecutor(new gm());
+            getCommand("v").setExecutor(new v(vanish));
     }
 
     private void registerListeners(){
