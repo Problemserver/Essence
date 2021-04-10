@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
-public class gm implements CommandExecutor {
+public class gamemode implements CommandExecutor {
 
     @Override
     public boolean onCommand(@Nonnull CommandSender commandSender, @Nonnull Command command, @Nonnull String s, @Nonnull String[] strings) {
