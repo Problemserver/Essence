@@ -19,7 +19,7 @@ public class vanish implements CommandExecutor {
     public boolean onCommand(@Nonnull CommandSender commandSender, @Nonnull Command command, @Nonnull String s, @Nonnull String[] strings) {
         int lengthWithoutSilent;
         boolean silent;
-        if(strings.length > 0 && strings[strings.length - 1].equals(s)) {
+        if(strings.length > 0 && strings[strings.length - 1].equals("s")) {
             lengthWithoutSilent = strings.length - 1;
             silent = true;
         }
