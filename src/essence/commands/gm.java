@@ -21,7 +21,7 @@ public class gm implements CommandExecutor {
             if (strings.length == 0) {
                 GameMode gameMode = player.getGameMode() == GameMode.CREATIVE ? GameMode.SURVIVAL : GameMode.CREATIVE;
                 player.setGameMode(gameMode);
-                player.sendMessage(String.format(Language.getStringFromKeyword("cmd_gm"), gameMode.name()));
+                player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_GM), gameMode.name()));
 
             } else if (strings.length == 1 && strings[0].matches("[+-]?\\d*(\\.\\d+)?")) {
 
