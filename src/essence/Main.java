@@ -3,14 +3,17 @@ package essence;
 import essence.commands.gamemode;
 import essence.commands.vanish;
 import essence.commands.speed;
-import essence.listeners.VanishListener;
-import essence.tools.Vanish;
+import essence.tools.navigator.Navigator;
+import essence.tools.navigator.NavigatorListener;
+import essence.tools.vanish.VanishListener;
+import essence.tools.vanish.Vanish;
 import essence.util.Language;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
     private final Vanish vanish = new Vanish(this);
+    private final Navigator navigator = new Navigator();
 
     @Override
     public void onEnable() {
@@ -32,6 +35,7 @@ public class Main extends JavaPlugin {
 
     private void registerListeners(){
         getServer().getPluginManager().registerEvents(new VanishListener(vanish), this);
+        getServer().getPluginManager().registerEvents(new NavigatorListener(navigator), this);
     }
 
 }

@@ -1,6 +1,6 @@
 package essence.commands;
 
-import essence.tools.Vanish;
+import essence.tools.vanish.Vanish;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

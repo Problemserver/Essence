@@ -1,12 +1,12 @@
-package essence.listeners;
+package essence.tools.vanish;
 
-import essence.tools.Vanish;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class VanishListener implements Listener{
+
     private final Vanish vanish;
 
     public VanishListener(Vanish vanish){

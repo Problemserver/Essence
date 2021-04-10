@@ -1,4 +1,4 @@
-package essence.tools;
+package essence.tools.vanish;
 
 import essence.util.Language;
 import essence.util.LanguageKeyword;
