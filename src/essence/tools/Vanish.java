@@ -1,6 +1,7 @@
 package essence.tools;
 
 import essence.util.Language;
+import essence.util.LanguageKeyword;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -23,7 +24,7 @@ public class Vanish {
                 otherPlayer.showPlayer(main, player);
             }
             if(!silent)
-                player.sendMessage(Language.getStringFromKeyword("cmd_vanish_off"));
+                player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.CMD_VANISH_OFF));
         } else {
             hiddenPlayers.add(player);
             //hides the player from everyone
@@ -31,7 +32,7 @@ public class Vanish {
                 otherPlayer.hidePlayer(main, player);
             }
             if(!silent)
-                player.sendMessage(Language.getStringFromKeyword("cmd_vanish_on"));
+                player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.CMD_VANISH_ON));
         }
     }
 

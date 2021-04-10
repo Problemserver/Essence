@@ -1,6 +1,7 @@
 package essence.commands;
 
 import essence.util.Language;
+import essence.util.LanguageKeyword;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -46,7 +47,7 @@ public class gm implements CommandExecutor {
                 }
 
                 player.setGameMode(gameMode);
-                player.sendMessage(String.format(Language.getStringFromKeyword("cmd_gm"), gameMode.name()));
+                player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_GM), gameMode.name()));
 
             } else {
                 return false;
