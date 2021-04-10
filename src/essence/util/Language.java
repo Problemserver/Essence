@@ -15,7 +15,7 @@ public class Language {
         lang.put(LanguageKeyword.CMD_VANISH_ON, "You are now vanished");
         lang.put(LanguageKeyword.CMD_VANISH_OFF, "You are no longer vanished");
         lang.put(LanguageKeyword.CMD_GM, "Switched your gamemode to %s");
-        lang.put(LanguageKeyword.CMD_SPEED_SET, "Your speed is now set to %f");
+        lang.put(LanguageKeyword.CMD_SPEED_SET, "Your walkingspeed is set to %f");
     }
 
 }
