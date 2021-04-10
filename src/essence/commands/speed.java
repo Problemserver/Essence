@@ -22,7 +22,7 @@ public class speed implements CommandExecutor {
 
             if(strings.length == 0){
                 /*
-                if(player.getFlySpeed() == 0.2 && player.getWalkSpeed() == 0.2){
+                if(player.getFlySpeed() == 0.2f && player.getWalkSpeed() == 0.2f){
                     newSpeed = 0.6f;
                     player.setWalkSpeed(newSpeed);
                     player.setFlySpeed(newSpeed);
@@ -33,6 +33,7 @@ public class speed implements CommandExecutor {
                     player.setFlySpeed(newSpeed);
                 }
                 player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SPEED_SET), newSpeed));*/
+                player.sendMessage(player.getFlySpeed()+"");
                 player.sendMessage(player.getFlySpeed()+"");
             }else if(strings.length == 1 && strings[0].matches("[+-]?\\d*(\\.\\d+)?")){
                 newSpeed = Float.parseFloat(strings[0]);
