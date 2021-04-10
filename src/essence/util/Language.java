@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Language {
 
-    private static final String SYSTEMPREFIX = ChatColor.GOLD + "System" + ChatColor.DARK_GRAY + "»";
+    private static final String SYSTEMPREFIX = ChatColor.GOLD + "System " + ChatColor.DARK_GRAY + "» ";
 
     private static final Map<LanguageKeyword, String> lang = new HashMap<>();
 
