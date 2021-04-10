@@ -15,9 +15,9 @@ commands:
     permission: essence.command.vanish
   s:
     description: Change your speed
-      usage: /s [speed]
-      aliases: speed
-      permission: essence.command.speed
+    usage: /s [speed]
+    aliases: speed
+    permission: essence.command.speed
 permissions:
   essence.command.gm:
     default: op
