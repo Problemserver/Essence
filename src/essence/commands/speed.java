@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
-public class s implements CommandExecutor {
+public class speed implements CommandExecutor {
 
-    public s(){
+    public speed(){
     }
 
     @Override

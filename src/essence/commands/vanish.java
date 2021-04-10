@@ -9,10 +9,10 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
-public class v implements CommandExecutor {
+public class vanish implements CommandExecutor {
     private final Vanish vanish;
 
-    public v(Vanish vanish){
+    public vanish(Vanish vanish){
         this.vanish = vanish;
     }
     @Override
