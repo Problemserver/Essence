@@ -1,14 +1,22 @@
 package essence.util;
 
+import org.bukkit.ChatColor;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Language {
 
+    private static final String SYSTEMPREFIX = ChatColor.GOLD + "System" + ChatColor.DARK_GRAY + "»";
+
     private static final Map<LanguageKeyword, String> lang = new HashMap<>();
 
     public static String getStringFromKeyword(LanguageKeyword keyword){
-        return lang.get(keyword);
+        return format(lang.get(keyword));
+    }
+
+    public static String format(String unformattedString){
+        return SYSTEMPREFIX + ChatColor.GRAY + unformattedString;
     }
 
     public static void putStringsInHashmap(){
