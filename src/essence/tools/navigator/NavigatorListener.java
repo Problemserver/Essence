@@ -7,6 +7,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -22,9 +23,11 @@ public class NavigatorListener implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
-        if (navigator.isCompass(event.getItem())) {
-            navigator.openCompassMenu(event.getPlayer());
-            event.setCancelled(true);
+        if(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+            if (navigator.isCompass(event.getItem())) {
+                navigator.openCompassMenu(event.getPlayer());
+                event.setCancelled(true);
+            }
         }
     }
 
@@ -35,7 +38,7 @@ public class NavigatorListener implements Listener {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getCurrentItem().getType() != Material.AIR && event.getCurrentItem().hasItemMeta()) {
                 int slot = event.getSlot();
-                String world = slot == 3 ? "hub" : "JapaneseCity";
+                String world = slot == 12 ? "hub" : "JapaneseCity";
                 p.getInventory().remove(navigator.compassItem());
                 ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                 String command = "mvtp " + p.getName() + " " + world;
@@ -64,7 +67,6 @@ public class NavigatorListener implements Listener {
         if (navigator.isCompass(event.getItemDrop().getItemStack())) {
             event.setCancelled(true);
         }
-
     }
 
     @EventHandler

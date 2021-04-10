@@ -12,14 +12,15 @@ import java.util.List;
 
 public class Navigator{
 
-    public final String COMPASS_NAME = ChatColor.BOLD + "" + ChatColor.RED + "Navigator";
-    private final int INV_SIZE = 9;
+    public final String COMPASS_NAME = ChatColor.RED + "Navigator";
+    private final int INV_SIZE = 27;
     private final int COMPASS_SLOT = 4;
     public final List<String> COMPASS_WORLDS = List.of("hub", "JapaneseCity");
 
     public ItemStack compassItem() {
-        ItemStack compass = new ItemStack(Material.COMPASS);
+        ItemStack compass = new ItemStack(Material.ENDER_PEARL);
         ItemMeta compassMeta = compass.getItemMeta();
+        assert compassMeta != null;
         compassMeta.setDisplayName(COMPASS_NAME);
         compass.setItemMeta(compassMeta);
         return compass;
@@ -36,25 +37,24 @@ public class Navigator{
         Inventory inv = Bukkit.createInventory(null, INV_SIZE, COMPASS_NAME);
 
         ItemStack itemHub = new ItemStack(Material.SLIME_BALL);
-        itemHub.getItemMeta().setDisplayName("Hub");
-        inv.setItem(3, itemHub);
+        ItemMeta itemHubMeta = itemHub.getItemMeta();
+        assert itemHubMeta != null;
+        itemHubMeta.setDisplayName("Spawn");
+        itemHub.setItemMeta(itemHubMeta);
+        inv.setItem(12, itemHub);
 
         ItemStack itemBuild = new ItemStack(Material.MAGMA_CREAM);
-        itemHub.getItemMeta().setDisplayName("Build");
-        inv.setItem(5, itemHub);
+        ItemMeta itemBuildMeta = itemHub.getItemMeta();
+        assert itemBuildMeta != null;
+        itemBuildMeta.setDisplayName("Build");
+        itemBuild.setItemMeta(itemBuildMeta);
+        inv.setItem(14, itemBuild);
 
         player.openInventory(inv);
     }
 
     public void giveCompass(Player p) {
-        Inventory inv = p.getInventory();
-        ItemStack item = inv.getItem(COMPASS_SLOT);
-        ItemStack compass = this.compassItem();
-        inv.setItem(COMPASS_SLOT, compass);
-        if (!this.isCompass(item)) {
-            inv.addItem(item);
-        }
-
+        p.getInventory().setItem(COMPASS_SLOT, this.compassItem());
     }
 
 }
