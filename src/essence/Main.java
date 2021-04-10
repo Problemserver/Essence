@@ -2,6 +2,7 @@ package essence;
 
 import essence.commands.gm;
 import essence.commands.v;
+import essence.commands.s;
 import essence.listeners.VanishListener;
 import essence.tools.Vanish;
 import essence.util.Language;
@@ -26,6 +27,7 @@ public class Main extends JavaPlugin {
     private void registerCommands(){
             getCommand("gm").setExecutor(new gm());
             getCommand("v").setExecutor(new v(vanish));
+            getCommand("s").setExecutor(new s());
     }
 
     private void registerListeners(){

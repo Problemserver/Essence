@@ -10,11 +10,18 @@ commands:
     permission: essence.command.gm
   v:
     description: Make yourself invisible to others
-    usage: /v
+    usage: /v [PlayerName] [s]
     aliases: vanish
     permission: essence.command.vanish
+  s:
+    description: Change your speed
+      usage: /s [speed]
+      aliases: speed
+      permission: essence.command.speed
 permissions:
   essence.command.gm:
     default: op
   essence.command.vanish:
+    default: op
+  essence.command.speed:
     default: op
