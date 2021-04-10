@@ -32,7 +32,7 @@ public class speed implements CommandExecutor {
                     player.setFlySpeed(0.1f); //0.1 is the standart flyingspeed
                 }
                 player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SPEED_SET), newSpeed));
-            }else if(strings.length == 1 && strings[0].matches("[+-]?\\d*(\\.\\d+)?")){
+            }else if(strings.length == 1 && strings[0].matches("[+-]?\\d*(\\.\\d+)?") && Float.parseFloat(strings[0]) >= 0f && Float.parseFloat(strings[0]) <= 1f){
                 newSpeed = Float.parseFloat(strings[0]);
                 player.setWalkSpeed(newSpeed);
                 player.setFlySpeed(newSpeed);
