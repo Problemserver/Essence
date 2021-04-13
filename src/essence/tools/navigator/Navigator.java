@@ -1,5 +1,6 @@
 package essence.tools.navigator;
 
+import essence.util.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -9,13 +10,20 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Navigator{
 
-    public final String COMPASS_NAME = ChatColor.RED + "Navigator";
-    private final int INV_SIZE = 27;
-    private final int COMPASS_SLOT = 4;
-    public final List<String> COMPASS_WORLDS = List.of("hub", "JapaneseCity");
+    public final String COMPASS_NAME;
+    private final int INV_SIZE;
+    private final int COMPASS_SLOT;
+    public final List<String> COMPASS_WORLDS = List.of("world");
+
+    public Navigator(Config config) {
+        COMPASS_NAME = config.getConfig().isString("navigator.name") ? ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfig().getString("navigator.name"))) : ChatColor.RED + "Navigator";
+        COMPASS_SLOT = config.getConfig().isInt("navigator.slot") ? config.getConfig().getInt("navigator.slot") : 4;
+        INV_SIZE = config.getConfig().isInt("navigator.inv-size") ? config.getConfig().getInt("navigator.inv-size") : 27;
+    }
 
     public ItemStack compassItem() {
         ItemStack compass = new ItemStack(Material.ENDER_PEARL);
@@ -41,14 +49,7 @@ public class Navigator{
         assert itemHubMeta != null;
         itemHubMeta.setDisplayName("Spawn");
         itemHub.setItemMeta(itemHubMeta);
-        inv.setItem(12, itemHub);
-
-        ItemStack itemBuild = new ItemStack(Material.MAGMA_CREAM);
-        ItemMeta itemBuildMeta = itemHub.getItemMeta();
-        assert itemBuildMeta != null;
-        itemBuildMeta.setDisplayName("Build");
-        itemBuild.setItemMeta(itemBuildMeta);
-        inv.setItem(14, itemBuild);
+        inv.setItem(13, itemHub);
 
         player.openInventory(inv);
     }

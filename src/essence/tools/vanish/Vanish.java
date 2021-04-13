@@ -4,16 +4,17 @@ import essence.util.Language;
 import essence.util.LanguageKeyword;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Vanish {
-    private final essence.Main main;
+    private final JavaPlugin plugin;
     private final List<Player> hiddenPlayers = new ArrayList<>();
 
-    public Vanish(essence.Main main) {
-        this.main = main;
+    public Vanish(JavaPlugin plugin) {
+        this.plugin = plugin;
     }
 
     public void ChangeVanishStatus(Player player, boolean silent){
@@ -21,7 +22,7 @@ public class Vanish {
             hiddenPlayers.remove(player);
             //everybody can see the player again
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
-                otherPlayer.showPlayer(main, player);
+                otherPlayer.showPlayer(plugin, player);
             }
             if(!silent)
                 player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.CMD_VANISH_OFF));
@@ -29,7 +30,7 @@ public class Vanish {
             hiddenPlayers.add(player);
             //hides the player from everyone
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
-                otherPlayer.hidePlayer(main, player);
+                otherPlayer.hidePlayer(plugin, player);
             }
             if(!silent)
                 player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.CMD_VANISH_ON));
@@ -38,7 +39,7 @@ public class Vanish {
 
     public void VanishPlayersForJoinedPlayers(Player player){
         for (Player otherPlayer : hiddenPlayers) {
-            player.hidePlayer(main, otherPlayer);
+            player.hidePlayer(plugin, otherPlayer);
         }
     }
 

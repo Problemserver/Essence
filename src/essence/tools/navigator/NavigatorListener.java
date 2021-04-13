@@ -37,8 +37,7 @@ public class NavigatorListener implements Listener {
         if (event.getView().getTitle().equals(navigator.COMPASS_NAME)) {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getCurrentItem().getType() != Material.AIR && event.getCurrentItem().hasItemMeta()) {
-                int slot = event.getSlot();
-                String world = slot == 12 ? "hub" : "JapaneseCity";
+                String world = navigator.COMPASS_WORLDS.get(0);
                 p.getInventory().remove(navigator.compassItem());
                 ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                 String command = "mvtp " + p.getName() + " " + world;
@@ -47,18 +46,6 @@ public class NavigatorListener implements Listener {
                     navigator.giveCompass(p);
                 }
             }
-        }
-    }
-
-    @EventHandler
-    public void onTP(MVTeleportEvent event) {
-        Player p = event.getTeleportee();
-        if (p.getInventory().contains(navigator.compassItem())) {
-            p.getInventory().remove(navigator.compassItem());
-        }
-
-        if (navigator.COMPASS_WORLDS.contains(p.getWorld().getName())) {
-            navigator.giveCompass(p);
         }
     }
 
