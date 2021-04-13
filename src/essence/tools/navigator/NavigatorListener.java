@@ -1,6 +1,5 @@
 package essence.tools.navigator;
 
-import com.onarandombox.MultiverseCore.event.MVTeleportEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.ConsoleCommandSender;

@@ -3,11 +3,13 @@ package essence.tools.navigator;
 import essence.util.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.util.Vector;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,8 +23,9 @@ public class Navigator{
 
     public Navigator(Config config) {
         COMPASS_NAME = config.getConfig().isString("navigator.name") ? ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfig().getString("navigator.name"))) : ChatColor.RED + "Navigator";
-        COMPASS_SLOT = config.getConfig().isInt("navigator.slot") ? config.getConfig().getInt("navigator.slot") : 4;
+        COMPASS_SLOT = config.getConfig().isInt("navigator.inv-slot") ? config.getConfig().getInt("navigator.inv-slot") : 4;
         INV_SIZE = config.getConfig().isInt("navigator.inv-size") ? config.getConfig().getInt("navigator.inv-size") : 27;
+        //config.getConfig().get
     }
 
     public ItemStack compassItem() {
@@ -58,4 +61,21 @@ public class Navigator{
         p.getInventory().setItem(COMPASS_SLOT, this.compassItem());
     }
 
+    private class NavigatorWarp{
+
+        private final int slot;
+        private final ItemStack item;
+        private final String name;
+        private final Location destination;
+        private final List<String> lore;
+
+        public NavigatorWarp(String path, Config config, Location destination, List<String> lore) {
+            this.slot = config.getConfig().getInt(path+".slot");
+            this.item = new ItemStack(Objects.requireNonNull(Material.getMaterial(Objects.requireNonNull(config.getConfig().getString(path + ".item")))));
+            this.name = config.getConfig().getString(path+".name");
+            this.destination = destination ;
+            this.lore = lore;
+        }
+    }
 }
+

@@ -1,61 +1,20 @@
 #Essence Config
+
+#General Navigator Settings
 navigator:
   name: "&cNavigator"
-  slot: 4
+  inv-slot: 4
   inv-size: 27
 
-#this number must be a multiple of 9 [9 = 1 row, 18 = 2 rows]
-invSize: 45
-
-# In those worlds you get the compas if you join
-WorldNames:
-  - world
-
-#those numbers count from 1 to invSize
-#every slot is the same slot as in the menu
-#you can add other items by copying and changing the numbers
-
-slot:
-  #====================== 1 Item ========================#
-  10:                                 # spot in the inventory
-    id: 47                            # The item id of the item
-    displayname: '&6&lMain Lobby&r'   # The displayname of the item in the menu
-    server: 'MainLobby'                 # The server to teleport to, !!IMPORTENT!! only use when using bungeecord, for multiverse use: world: <Worldname> !!
-    lore:                             # The lore of the item
-      - '&aGo to the Main Lobby!'       # lore line 1
-  #======================================================#
-  12:
-    id: 283
-    displayname: '&ePvP'
-    server: 'pvp'
-    lore:
-      - '&cPvP&a with your friends,'
-      - '&aand show them you are the &2BEST'
-
-  13:
-    id: 355
-    displayname: '&eBedwars'
-    server: 'bedwars'
-    lore:
-      - '&aDefend your bed'
-
-  14:
-    id: 397
-    displayname: '&eSurvival'
-    server: 'survival'
-    lore:
-      - '&6Can you survive the night'
-
-  15:
-    id: 2
-    displayname: '&eSkyblock'
-    server: 'skyblock'
-    lore:
-      - '&cLove &abeing stuck on an Island?'
-
-  16:
-    id: 286
-    displayname: '&eSkywars'
-    server: 'skywars'
-    lore:
-      - '&aIslands pvp in the air!'
+#Navigator Content
+navigator-warps:
+  - spawn:
+      slot: 1
+      id: SLIME_BALL
+      name: 'Spawn'
+      coordinates:
+        x: 0
+        y: 60
+        z: 0
+      lore:
+        - 'hubby hubby hub'
