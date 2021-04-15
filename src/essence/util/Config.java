@@ -19,12 +19,12 @@ public class Config {
         this.plugin = plugin;
     }
 
-    public void createFiles() throws InvalidConfigurationException {
+    public void loadFiles() throws InvalidConfigurationException {
 
         this.configFile = new File(plugin.getDataFolder(), "config.yml");
         if (!this.configFile.exists()) {
             this.configFile.getParentFile().mkdirs();
-            plugin.saveResource("resource/config.yml", false);
+            plugin.saveResource("config.yml", false);
         }
 
         this.config = new YamlConfiguration();

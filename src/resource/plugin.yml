@@ -1,5 +1,5 @@
 main: essence.Main
-version: 0.1
+version: 0.2
 name: Essence
 authors: [JustFloooo, Nicronicson]
 api-version: 1.13

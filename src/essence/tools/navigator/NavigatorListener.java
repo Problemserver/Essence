@@ -1,6 +1,7 @@
 package essence.tools.navigator;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -11,6 +12,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.util.Vector;
+
+import java.util.Objects;
 
 public class NavigatorListener implements Listener {
 
@@ -32,17 +36,16 @@ public class NavigatorListener implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent event) {
-        Player p = (Player)event.getWhoClicked();
-        if (event.getView().getTitle().equals(navigator.COMPASS_NAME)) {
+        if (event.getCurrentItem()!= null && navigator.isCompass(event.getCurrentItem())) {
+            event.setCancelled(true);
+        }
+        if (event.getView().getTitle().equals(navigator.getCOMPASS_NAME())) {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getCurrentItem().getType() != Material.AIR && event.getCurrentItem().hasItemMeta()) {
-                String world = navigator.COMPASS_WORLDS.get(0);
-                p.getInventory().remove(navigator.compassItem());
-                ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-                String command = "mvtp " + p.getName() + " " + world;
-                Bukkit.dispatchCommand(console, command);
-                if (navigator.COMPASS_WORLDS.contains(p.getWorld().getName())) {
-                    navigator.giveCompass(p);
+                Player p = (Player)event.getWhoClicked();
+                Vector destination = navigator.getVectorbyName(Objects.requireNonNull(event.getCurrentItem().getItemMeta()).getDisplayName());
+                if(destination!=null){
+                    p.teleport(new Location(p.getWorld(), destination.getX(), destination.getY(), destination.getZ()));
                 }
             }
         }
@@ -58,9 +61,6 @@ public class NavigatorListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
-        if (navigator.COMPASS_WORLDS.contains(p.getWorld().getName())) {
-            navigator.giveCompass(p);
-        }
-
+        navigator.giveCompass(p);
     }
 }

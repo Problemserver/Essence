@@ -11,6 +11,13 @@ public class Language {
 
     private static final Map<LanguageKeyword, String> lang = new HashMap<>();
 
+    static {
+        lang.put(LanguageKeyword.CMD_VANISH_ON, "You are now vanished");
+        lang.put(LanguageKeyword.CMD_VANISH_OFF, "You are no longer vanished");
+        lang.put(LanguageKeyword.CMD_GM, "Switched your gamemode to %s");
+        lang.put(LanguageKeyword.CMD_SPEED_SET, "Your speed is set to %f");
+    }
+
     public static String getStringFromKeyword(LanguageKeyword keyword){
         return format(lang.get(keyword));
     }
@@ -18,12 +25,4 @@ public class Language {
     public static String format(String unformattedString){
         return SYSTEMPREFIX + ChatColor.GRAY + unformattedString;
     }
-
-    public static void putStringsInHashmap(){
-        lang.put(LanguageKeyword.CMD_VANISH_ON, "You are now vanished");
-        lang.put(LanguageKeyword.CMD_VANISH_OFF, "You are no longer vanished");
-        lang.put(LanguageKeyword.CMD_GM, "Switched your gamemode to %s");
-        lang.put(LanguageKeyword.CMD_SPEED_SET, "Your speed is set to %f");
-    }
-
 }

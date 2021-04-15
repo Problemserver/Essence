@@ -1,28 +1,29 @@
 package essence;
 
 import essence.commands.gamemode;
-import essence.commands.vanish;
 import essence.commands.speed;
+import essence.commands.vanish;
 import essence.tools.navigator.Navigator;
 import essence.tools.navigator.NavigatorListener;
-import essence.tools.vanish.VanishListener;
 import essence.tools.vanish.Vanish;
+import essence.tools.vanish.VanishListener;
 import essence.util.Config;
-import essence.util.Language;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
     private final Config config = new Config(this);
-
     private final Vanish vanish = new Vanish(this);
-    private final Navigator navigator = new Navigator(config);
+
+    private Navigator navigator;
 
     @Override
     public void onEnable() {
         getLogger().info("Loading Essence Plugin.");
-        Language.putStringsInHashmap();
+
+        getLogger().info("Reading Essence Configuration.");
+        loadConfiguration();
 
         getLogger().info("Loading Essence Commands.");
         registerCommands();
@@ -30,15 +31,13 @@ public class Main extends JavaPlugin {
         getLogger().info("Loading Essence Listeners.");
         registerListeners();
 
-        getLogger().info("Reading Essence Configuration.");
-        loadConfiguration();
-
         getLogger().info("Essence primed and ready.");
     }
 
     private void loadConfiguration(){
         try {
-            config.createFiles();
+            config.loadFiles();
+            navigator = new Navigator(config);
         } catch (InvalidConfigurationException e) {
             e.printStackTrace();
         }
