@@ -3,8 +3,6 @@ package essence;
 import essence.commands.gamemode;
 import essence.commands.speed;
 import essence.commands.vanish;
-import essence.tools.navigator.Navigator;
-import essence.tools.navigator.NavigatorListener;
 import essence.tools.vanish.Vanish;
 import essence.tools.vanish.VanishListener;
 import essence.util.Config;
@@ -15,8 +13,6 @@ public class Main extends JavaPlugin {
 
     private final Config config = new Config(this);
     private final Vanish vanish = new Vanish(this);
-
-    private Navigator navigator;
 
     @Override
     public void onEnable() {
@@ -37,7 +33,6 @@ public class Main extends JavaPlugin {
     private void loadConfiguration(){
         try {
             config.loadFiles();
-            navigator = new Navigator(config);
         } catch (InvalidConfigurationException e) {
             e.printStackTrace();
         }
@@ -51,7 +46,6 @@ public class Main extends JavaPlugin {
 
     private void registerListeners(){
         getServer().getPluginManager().registerEvents(new VanishListener(vanish), this);
-        getServer().getPluginManager().registerEvents(new NavigatorListener(navigator), this);
     }
 
 }
