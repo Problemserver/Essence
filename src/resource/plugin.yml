@@ -18,10 +18,7 @@ commands:
     usage: /s [0-1]
     aliases: speed
     permission: essence.command.speed
-permissions:
-  essence.command.gm:
-    default: op
-  essence.command.vanish:
-    default: op
-  essence.command.speed:
-    default: op
+  tpworld:
+    description: Teleport between Worlds
+    usage: /tpworld (World)
+    permission: essence.command.tpworld
