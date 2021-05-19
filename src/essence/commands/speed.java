@@ -1,7 +1,6 @@
 package essence.commands;
 
 import essence.util.Language;
-import essence.util.LanguageKeyword;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,13 +30,13 @@ public class speed implements CommandExecutor {
                     player.setWalkSpeed(newSpeed);
                     player.setFlySpeed(0.1f); //0.1 is the standard flying speed
                 }
-                player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SPEED_SET), newSpeed));
+                player.sendMessage(String.format(Language.CMD_SPEED_SET.getFormattedText(), newSpeed));
 
             }else if(strings.length == 1 && strings[0].matches("[+-]?\\d*(\\.\\d+)?") && Float.parseFloat(strings[0]) >= 0f && Float.parseFloat(strings[0]) <= 1f){
                 newSpeed = Float.parseFloat(strings[0]);
                 player.setWalkSpeed(newSpeed);
                 player.setFlySpeed(newSpeed);
-                player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SPEED_SET), newSpeed));
+                player.sendMessage(String.format(Language.CMD_SPEED_SET.getFormattedText(), newSpeed));
             } else {
                 return false;
             }

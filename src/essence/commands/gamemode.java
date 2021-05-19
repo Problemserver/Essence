@@ -1,7 +1,6 @@
 package essence.commands;
 
 import essence.util.Language;
-import essence.util.LanguageKeyword;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,7 +20,7 @@ public class gamemode implements CommandExecutor {
             if (strings.length == 0) {
                 GameMode gameMode = player.getGameMode() == GameMode.CREATIVE ? GameMode.SURVIVAL : GameMode.CREATIVE;
                 player.setGameMode(gameMode);
-                player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_GM), gameMode.name()));
+                player.sendMessage(String.format(Language.CMD_GM.getFormattedText(), gameMode.name()));
 
             } else if (strings.length == 1 && strings[0].matches("[+-]?\\d*(\\.\\d+)?")) {
 
@@ -47,7 +46,7 @@ public class gamemode implements CommandExecutor {
                 }
 
                 player.setGameMode(gameMode);
-                player.sendMessage(String.format(Language.getStringFromKeyword(LanguageKeyword.CMD_GM), gameMode.name()));
+                player.sendMessage(String.format(Language.CMD_GM.getFormattedText(), gameMode.name()));
 
             } else {
                 return false;

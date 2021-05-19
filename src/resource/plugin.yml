@@ -20,5 +20,5 @@ commands:
     permission: essence.command.speed
   tpworld:
     description: Teleport between Worlds
-    usage: /tpworld (World)
+    usage: /tpworld [World]
     permission: essence.command.tpworld
